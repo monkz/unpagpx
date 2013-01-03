@@ -1,0 +1,30 @@
+#About
+This program tries to copy all gpx-files from 
+a heterogen (gpx- and archivefiles) into one unpacked folder.
+
+Sourcefolder and destinationfolder MUST exist!
+No subfolderrecursion is implemented.
+
+#Usage
+./unpagpx.sh <sourcefolder> <destinationfolder>
+
+#Dependencies
+bash
+gnu file
+gnu tar
+gzip
+bzip2
+
+#Tested
+On *buntu 12.10
+
+#License
+Copyright (C) 2013 Malte Kuhn <git@monkz.de>
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 3 of the License, or
+(at your option) any later version.
+
+On Debian systems, you can find the full text of the license in
+/usr/share/common-licenses/GPL-3
