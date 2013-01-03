@@ -15,4 +15,6 @@ else
   echo -n "$2.gpx->"
   echo -n "$1: "
   echo $checkncopyTYPE
+  #Treat file as xml
+  cp "$1" "$3/$2_`md5sum "$1" | cut -d' ' -f1`.gpx"
 fi
