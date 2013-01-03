@@ -11,7 +11,7 @@
 if ([ "$2" == "" ] || [ "$1" == "" ] || [ ! -d $2 ] || [ ! -d $1 ]); then
   echo "usage: $0 <sourcefolder> <destinationfolder>"
 else
-  unpagpxTMP=`mktemp -d`
+  unpagpxTMP=`mktemp -d --suffix=unpagpx`
   for savee in `ls $1*.gpx`; do
     #echo - $savee :
     saveeTYPE=`file -bzi $savee`
@@ -43,7 +43,10 @@ else
          echo $saveeTYPE 
      fi
      bsname=`basename $savee .gpx`
-     find $unpagpxTMP -type f -exec ./checkncopy.sh {} $bsname $2 \;
+     counter=`mktemp --suffix=unpagpx`
+     echo 0 > $counter
+     find $unpagpxTMP -type f -exec ./checkncopy.sh {} $bsname $2 $counter \;
+     rm $counter
      rm -r $unpagpxTMP/*
   done
   rm -rf $unpagpxTMP

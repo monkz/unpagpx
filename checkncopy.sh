@@ -9,12 +9,12 @@
 # On Debian systems, you can find the full text of the license in
 # /usr/share/common-licenses/GPL-3
 checkncopyTYPE=`file -bi "$1"`
-if [[ $checkncopyTYPE == "application/xml"* ]]; then
-  cp "$1" "$3/$2_`md5sum "$1" | cut -d' ' -f1`.gpx"
+if ([[ $checkncopyTYPE == "application/xml"* ]] || [[ $checkncopyTYPE == "text/plain"* ]]); then
+  counter=$[$(cat $4) + 1]
+  echo $counter > $4
+  cp "$1" "$3/$2_$counter.gpx"
 else
   echo -n "$2.gpx->"
   echo -n "$1: "
   echo $checkncopyTYPE
-  #Treat file as xml
-  cp "$1" "$3/$2_`md5sum "$1" | cut -d' ' -f1`.gpx"
 fi

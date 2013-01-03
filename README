@@ -14,7 +14,7 @@ gnu file
 gnu tar
 gzip
 bzip2
-md5sum
+gnu cat
 
 #Tested
 On *buntu 12.10
